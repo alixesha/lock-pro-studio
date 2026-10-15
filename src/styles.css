@@ -305,7 +305,7 @@ a { transition: color .2s ease; }
 .lock-showcase { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; align-items: center; margin-bottom: 60px; }
 .lock-showcase p:not(.eyebrow) { margin-top: 14px; font-size: 13px; line-height: 1.9; color: var(--muted-foreground); }
 .lock-anim { background: var(--deep); border-radius: var(--radius-xl); padding: 28px; overflow: hidden; }
-.lock-anim svg { width: 100%; height: auto; display: block; overflow: visible; }
+.lock-anim > svg { width: 100%; height: auto; display: block; overflow: visible; }
 .la-housing { fill: oklch(1 0 0 / 4%); stroke: var(--gold); stroke-opacity: .35; stroke-width: 1.5; }
 .la-plug-body { fill: oklch(1 0 0 / 7%); stroke: var(--gold); stroke-opacity: .5; }
 .la-plug { transform-origin: 260px 165px; transition: transform .6s cubic-bezier(.6,0,.3,1) 0s; }
@@ -314,7 +314,7 @@ a { transition: color .2s ease; }
 .la-driver { fill: var(--hero-foreground); fill-opacity: .8; }
 .la-keypin { fill: var(--gold); }
 .la-pin { transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
-.la-key { transform: translateX(-140px); opacity: .0; transition: transform 1s cubic-bezier(.6,0,.2,1), opacity .4s; }
+.la-key { transform: translateX(-120px); opacity: .0; transition: transform 1s cubic-bezier(.6,0,.2,1), opacity .4s; }
 .la-key-blade, .la-key-bow { fill: var(--gold); }
 .la-key-hole { fill: var(--deep); }
 .is-open .la-key { transform: translateX(0); opacity: 1; }

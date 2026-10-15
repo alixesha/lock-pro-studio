@@ -20,7 +20,7 @@ export function LockAnimation() {
 
   return (
     <div ref={ref} className={`lock-anim${open ? " is-open" : ""}`}>
-      <svg viewBox="0 0 520 260" role="img" aria-label={open ? "Key inserted, pins aligned, lock open" : "Pin tumbler lock, locked"}>
+      <svg viewBox="-70 30 560 200" role="img" aria-label={open ? "Key inserted, pins aligned, lock open" : "Pin tumbler lock, locked"}>
         <rect className="la-housing" x="60" y="40" width="400" height="180" rx="18" />
         <g className="la-plug">
           <rect className="la-plug-body" x="80" y="130" width="360" height="70" rx="10" />
@@ -29,17 +29,17 @@ export function LockAnimation() {
         {pins.map((i) => {
           const x = 140 + i * 64;
           return (
-            <g key={i} className="la-pin" style={{ ["--lift" as string]: `${-(36 - cuts[i]!)}px`, transitionDelay: `${0.5 + i * 0.12}s` }}>
-              <path className="la-spring" d={`M${x - 8} 52 l16 6 l-16 6 l16 6 l-16 6 l16 6`} />
-              <rect className="la-driver" x={x - 10} y="88" width="20" height={42} rx="3" />
-              <rect className="la-keypin" x={x - 10} y="130" width="20" height={36 - cuts[i]! + 12} rx="3" />
+            <g key={i} className="la-pin" style={{ ["--lift" as string]: "-20px", transitionDelay: `${0.5 + i * 0.12}s` }}>
+              <path className="la-spring" d={`M${x - 8} 62 l16 8 l-16 8 l16 8 l-16 8 l16 8`} />
+              <rect className="la-driver" x={x - 10} y="110" width="20" height={40} rx="3" />
+              <rect className="la-keypin" x={x - 10} y="150" width="20" height={20 + cuts[i]!} rx="3" />
             </g>
           );
         })}
         <g className="la-key">
-          <path className="la-key-blade" d={`M0 172 ${pins.map((i) => `L${130 + i * 64} 172 L${140 + i * 64} ${172 + cuts[i]! - 8} L${150 + i * 64} 172`).join(" ")} L430 172 L440 182 L430 194 L0 194 Z`} />
-          <circle className="la-key-bow" cx="-30" cy="183" r="34" />
-          <circle className="la-key-hole" cx="-38" cy="183" r="9" />
+          <path className="la-key-blade" d={`M0 184 ${pins.map((i) => `L${128 + i * 64} 184 L${136 + i * 64} ${150 + cuts[i]!} L${144 + i * 64} ${150 + cuts[i]!} L${152 + i * 64} 184`).join(" ")} L430 184 L440 190 L430 196 L0 196 Z`} />
+          <circle className="la-key-bow" cx="-30" cy="190" r="30" />
+          <circle className="la-key-hole" cx="-38" cy="190" r="8" />
         </g>
       </svg>
       <div className="la-controls">
