@@ -12,7 +12,7 @@ export function LockAnimation() {
     const el = ref.current;
     if (!el || !("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setTimeout(() => setOpen(true), 500); io.disconnect(); }
+      if (e?.isIntersecting) { setTimeout(() => setOpen(true), 500); io.disconnect(); }
     }, { threshold: 0.5 });
     io.observe(el);
     return () => io.disconnect();
