@@ -1,4 +1,4 @@
 # Website roadmap
-- [ ] Build premium website and detailed service, about, and contact pages.
-- [ ] Prepare Netlify deployment configuration and instructions.
-- [ ] Verify navigation, calls, and mobile layout.
+- [x] Build premium website and detailed service, about, and contact pages.
+- [x] Prepare Netlify deployment configuration and instructions. Actual deployment requires the owner's Netlify connection.
+- [x] Verify navigation, calls, and mobile layout.
