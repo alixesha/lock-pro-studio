@@ -29,15 +29,15 @@ export function LockAnimation() {
         {pins.map((i) => {
           const x = 140 + i * 64;
           return (
-            <g key={i} className="la-pin" style={{ ["--lift" as string]: `${-(36 - cuts[i])}px`, transitionDelay: `${0.5 + i * 0.12}s` }}>
+            <g key={i} className="la-pin" style={{ ["--lift" as string]: `${-(36 - cuts[i]!)}px`, transitionDelay: `${0.5 + i * 0.12}s` }}>
               <path className="la-spring" d={`M${x - 8} 52 l16 6 l-16 6 l16 6 l-16 6 l16 6`} />
               <rect className="la-driver" x={x - 10} y="88" width="20" height={42} rx="3" />
-              <rect className="la-keypin" x={x - 10} y="130" width="20" height={36 - cuts[i] + 12} rx="3" />
+              <rect className="la-keypin" x={x - 10} y="130" width="20" height={36 - cuts[i]! + 12} rx="3" />
             </g>
           );
         })}
         <g className="la-key">
-          <path className="la-key-blade" d={`M0 172 ${pins.map((i) => `L${130 + i * 64} 172 L${140 + i * 64} ${172 + cuts[i] - 8} L${150 + i * 64} 172`).join(" ")} L430 172 L440 182 L430 194 L0 194 Z`} />
+          <path className="la-key-blade" d={`M0 172 ${pins.map((i) => `L${130 + i * 64} 172 L${140 + i * 64} ${172 + cuts[i]! - 8} L${150 + i * 64} 172`).join(" ")} L430 172 L440 182 L430 194 L0 194 Z`} />
           <circle className="la-key-bow" cx="-30" cy="183" r="34" />
           <circle className="la-key-hole" cx="-38" cy="183" r="9" />
         </g>
