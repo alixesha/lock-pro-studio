@@ -1,24 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, ArrowDown, ShieldCheck, MapPin, KeyRound, MessageCircle, Check, Phone } from "lucide-react";
+import hero from "@/assets/locksmith-hero.jpg";
+import workshop from "@/assets/locksmith-workshop.jpg";
+import { Button } from "@/components/ui/button";
+import { CallButton, ContactBand } from "@/components/site";
+import { ServiceCards } from "@/components/service-card";
+import { business, pageHead } from "@/lib/business";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({ ...pageHead("Minneapolis locksmiths", "MSP LOCK AND KEY: local residential, commercial and automotive locksmith solutions in Minneapolis. Call 952-800-8017. Find us at 4801 Portland Ave."), scripts: [{ type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "Locksmith", name: business.name, telephone: "+1-952-800-8017", address: { "@type": "PostalAddress", streetAddress: "4801 Portland Ave", addressLocality: "Minneapolis", addressRegion: "MN", postalCode: "55417", addressCountry: "US" } }) }] }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <main><section className="home-hero"><img className="hero-photo" src={hero} alt="Brass deadbolt and handle on a modern front door" width={1920} height={1088} fetchPriority="high" /><div className="site-container hero-content"><p className="eyebrow hero-eyebrow">MSP LOCK AND KEY · MINNEAPOLIS</p><h1>Your security.<br />Our craft.<br /><span>Peace of mind.</span></h1><p className="hero-copy">From your front door to the road ahead, dependable lock and key solutions from a local name you can turn to.</p><div className="hero-buttons"><CallButton label="952-800-8017" variant="gold" /><Button asChild variant="heroOutline" size="lg"><Link to="/services">Explore our services<ArrowRight /></Link></Button></div><p className="hero-note"><MapPin size={13} />Rooted in Minneapolis. Focused on you.</p></div><div className="hero-bottom"><div className="site-container"><span>PRECISION IN EVERY DETAIL. CARE IN EVERY CALL.</span><a href="#our-services">Discover more<ArrowDown size={15} /></a></div></div></section><section className="trust-strip" aria-label="Our approach"><div className="site-container trust-grid">{[{ icon: MapPin, title: "Locally based", text: "Right here in Minneapolis" }, { icon: ShieldCheck, title: "Security-minded", text: "Your peace of mind comes first" }, { icon: KeyRound, title: "Solutions that fit", text: "Home, business & automotive" }, { icon: MessageCircle, title: "A direct connection", text: "One call. A clear next step." }].map(item => <div className="trust-item" key={item.title}><item.icon /><div><strong>{item.title}</strong><small>{item.text}</small></div></div>)}</div></section><section className="section" id="our-services"><div className="site-container"><div className="section-heading"><div><p className="eyebrow">THE RIGHT HELP, RIGHT WHEN IT MATTERS</p><h2>Every lock has a solution.</h2></div><p>For the everyday and the unexpected.<br />Explore lock and key services built around your life.</p></div><ServiceCards /><p className="services-footnote">Not sure what you need? <a href={business.telephone}>Let’s talk it through.</a><ArrowUpRightIcon /></p></div></section><section className="section story-section"><div className="site-container story-grid"><div className="story-image"><img src={workshop} alt="Carefully arranged brass and steel door hardware and keys on a workbench" width={1200} height={1008} loading="lazy" /><div className="image-caption"><KeyRound size={24} /><span>Small details.<br />A meaningful difference.</span></div></div><div className="story-copy"><p className="eyebrow">YOUR NEIGHBORHOOD LOCKSMITH</p><h2>More than locks.<br />It’s about trust.</h2><p>You’re not just handing over a key. You’re trusting someone with your home, your business, or your way forward. We take that seriously.</p><p>MSP LOCK AND KEY brings a personal, practical approach to security. Based on Portland Avenue in Minneapolis, we believe good service starts with listening.</p><div className="story-points"><span><Check />Local people. A direct conversation.</span><span><Check />Practical solutions, explained clearly.</span><span><Check />Care for your property and your peace of mind.</span></div><Link to="/about">Get to know MSP LOCK AND KEY <ArrowRight size={17} /></Link></div></div></section><section className="section"><div className="site-container"><div className="section-heading"><div><p className="eyebrow">SIMPLE FROM THE FIRST CALL</p><h2>Less worry. A clear way forward.</h2></div><p>No need to know the technical details.<br />Just tell us what’s happening.</p></div><div className="steps-grid">{[{ title: "Tell us what you need.", text: "Call us with your location and your lock or key concern. We’ll help you understand the next step." }, { title: "Talk through the solution.", text: "Discuss service availability, the approach, and an estimate before arranging the work." }, { title: "Get back to what matters.", text: "Move forward with a lock and key solution that fits your situation and your property." }].map((step, i) => <div className="step" key={step.title}><span>0{i + 1}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}</div></div></section><ContactBand /></main>;
 }
+
+function ArrowUpRightIcon() { return <ArrowRight size={12} />; }
